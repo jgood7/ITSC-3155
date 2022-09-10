@@ -1,0 +1,43 @@
+def probOne():
+    textin = input("Please enter a string: ")
+    if len(textin)<2:
+        print("Your string is too short!")
+    else:
+        print(textin[0:2] + textin[len(textin)-2:len(textin)])
+
+def probTwo():
+    low = int(input("Please enter first number: "))
+    high = int(input("Please enter second number: "))
+    for x in range(low, high):
+        if x%7 == 0 and x%5 != 0:
+            print(x, end=", ")
+
+def probThree():
+    first = eval(input("Input first dictionary: "))
+    second = eval(input("Input second dictionary: "))
+    result = {}
+    index=0
+    for each in first:
+        result[each] = first[each]
+        index = index+1
+    for each in second:
+        if result.get(each) != None:
+            result[each] = int(result[each]) + int(second[each])
+        else:
+            result[each] = second[each]
+    print(result)
+
+
+def probFour():
+    num = int(input("Number of items: "))
+    itemDict = list()
+    for x in range(num):
+        itemDict.append (input("Input item and price").split(" "))
+    itemDict.sort(key = lambda x:x[1])
+    for item in itemDict:
+        print(str(item[0]) + " " + str(item[1]))
+
+probOne()
+probTwo()
+probThree()
+probFour()
